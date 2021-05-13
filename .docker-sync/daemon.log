@@ -1,6 +1,6 @@
-          ok  Starting native_osx for sync mysql-data
-          ok  mysql-data container still running, restarting unison in container
+          ok  Starting native_osx for sync web-volume
+          ok  web-volume container still running, restarting unison in container
 unison: stopped
 unison: started
      success  Sync container started
-     success  Showing unison logs from your sync container: mysql-data
+     success  Showing unison logs from your sync container: web-volume
