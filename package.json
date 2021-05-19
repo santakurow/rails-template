@@ -10,6 +10,10 @@
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
   },
+  "scripts": {
+    "build": "bin/webpack",
+    "start": "bin/webpack-dev-server"
+  },
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^3.11.2"
