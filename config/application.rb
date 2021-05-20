@@ -34,5 +34,15 @@ module Myapp
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # ジェネレーターを設定
+    config.generators do |g|
+      g.helper false
+      g.test_framework :rspec
+    end
+
+    # タイムゾーンの設定
+    config.time_zone = "Tokyo"
+    config.active_record.default_timezone = :local
   end
 end
