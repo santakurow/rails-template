@@ -37,3 +37,6 @@ yarn-debug.log*
 
 # for docker-sync
 /.docker-sync
+
+# WARNING: NOT Delete!!!
+.env
