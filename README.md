@@ -1,24 +1,26 @@
-# README
+# Rails-Template
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Dockerで構築した、Railsテンプレート  
+Ruby on Rails on Docker :)  
 
-Things you may want to cover:
+## 使い方
 
-* Ruby version
+1. リポジトリを取得
+```
+$ git clone https://github.com/santakurow/rails-template.git
+```
+2. イメージを構築
+```
+$ docker-compose build
+```
+3. bundle installで新しいGemを更新
+```
+$ docker-compose run --rm web bundle install
+```
+4. コンテナを起動してRailsを立ち上げる
+```
+$ docker-compose up
+```
 
-* System dependencies
+enjoy!
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
