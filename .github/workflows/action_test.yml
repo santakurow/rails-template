@@ -19,5 +19,4 @@ jobs:
       - name: Compose-Down
         run: |
           docker-compose down
-        run: |
           docker-compose up -d
