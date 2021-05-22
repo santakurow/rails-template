@@ -9,6 +9,9 @@ jobs:
       - name: Build
         run: |
           docker-compose build
+      - name: Rails-DB-Create
+        run: |
+          docker-compose run web rails db:create RAILS_ENV=test
       - name: Compose-Up
         run: |
           docker-compose up -d
