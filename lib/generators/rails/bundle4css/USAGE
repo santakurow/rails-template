@@ -1,0 +1,8 @@
+Description:
+    Explain the generator
+
+Example:
+    bin/rails generate bundle4css Thing
+
+    This will create:
+        what/will/it/create
