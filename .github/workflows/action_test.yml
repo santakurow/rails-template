@@ -10,13 +10,9 @@ jobs:
         run: |
           docker-compose run web yarn install --check-files
           docker-compose run web yarn upgrade
-        env:
-          RAILS_ENV: test
       - name: Build
         run: |
           docker-compose build
-        env:
-          RAILS_ENV: test
       - name: DB Create
         run: |
           docker-compose run web rails db:create
@@ -25,9 +21,11 @@ jobs:
       - name: Run RSpec
         run: |
           docker-compose run web rspec
+        env:
+          RAILS_ENV: test
       - name: Compose Up
         run: |
-          docker-compose up
+          docker-compose up -d
       - name: Compose Down
         run: |
           docker-compose down
