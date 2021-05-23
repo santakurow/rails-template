@@ -1,4 +1,4 @@
-name: DOCKER_CI
+name: Docker-CI
 
 on: [push]
 jobs:
@@ -6,13 +6,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Setup docker
+      - name:
+          Build & Yarn Setup
+          # package.jsonのパッケージのバージョンとハッシュ値をyarn.lockのものと一致させる
         run: |
           docker-compose run web yarn install --check-files
           docker-compose run web yarn upgrade
-      - name: Build
+      - name: Bundle install
         run: |
-          docker-compose build
+          docker-compose run web bundle install
       - name: DB Create
         run: |
           docker-compose run web rails db:create
