@@ -6,18 +6,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Setup docker
+        run: |
+          docker-compose run web yarn install --check-files
+          docker-compose run web yarn upgrade
+        env:
+          RAILS_ENV: test
       - name: Build
         run: |
           docker-compose build
-      - name: Rails-DB-Create
+        env:
+          RAILS_ENV: test
+      - name: DB Create
         run: |
           docker-compose run web rails db:create
         env:
           RAILS_ENV: test
-      - name: Compose-Up
+      - name: Run RSpec
         run: |
-          docker-compose up -d
-      - name: Compose-Down
+          docker-compose run web rspec
+      - name: Compose Up
+        run: |
+          docker-compose up
+      - name: Compose Down
         run: |
           docker-compose down
-          docker-compose up -d
