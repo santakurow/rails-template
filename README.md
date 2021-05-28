@@ -17,7 +17,18 @@ $ docker-compose build
 ```
 $ docker-compose run --rm web bundle install
 ```
-4. コンテナを起動してRailsを立ち上げる
+4. DBを作成
+```
+$ docker-compose run --rm web rails db:create
+```
+5. webpackerをインストールし、バイナリーファイル(webpackコマンド)を上書きする
+```
+$ docker-compose run --rm web rails webpacker:install
+
+  Overwrite /myapp/bin/webpack? (enter "h" for help) [Ynaqdhm] y
+  Overwrite /myapp/bin/webpack-dev-server? (enter "h" for help) [Ynaqdhm] y
+```
+6. コンテナを起動してRailsを立ち上げる
 ```
 $ docker-compose up
 ```
