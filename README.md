@@ -39,7 +39,7 @@ $ cp .env.example .env
 `.env`
 
 ```
-APP_NAME=wakuwaku_app
+APP_NAME=プロジェクト名
 
 # MYSQL_USERNAME=
 # MYSQL_PASSWORD=
