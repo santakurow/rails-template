@@ -8,7 +8,7 @@ Ruby on Rails on Docker :)
 1. リポジトリを取得
 
 ```
-$ git clone https://github.com/santakurow/rails-template.git
+$ git clone https://github.com/santakurow/rails-template.git ディレクトリ名
 ```
 
 2. イメージを構築
@@ -17,7 +17,7 @@ $ git clone https://github.com/santakurow/rails-template.git
 $ docker-compose build
 ```
 
-3. 新しく **Gemfile** を更新
+3. 新しく `Gemfile` を更新
 
 ```
 $ docker-compose run --rm web bundle install
@@ -29,13 +29,30 @@ $ docker-compose run --rm web bundle install
 $ docker-compose run --rm web yarn --check-files
 ```
 
-5. **DB** を作成
+5. `.env.sample`ファイルから新しくコピーした`.env`ファイル内の環境変数 **APP_NAME** にプロジェクト名を設定する  
+   （設定しない場合は`database.yml`内のデフォルト値でプロジェクト名が設定される）
+
+```
+$ cp .env.example .env
+```
+
+`.env`
+
+```
+APP_NAME=プロジェクト名
+
+# MYSQL_USERNAME=
+# MYSQL_PASSWORD=
+# MYSQL_HOST=
+```
+
+6. **データベース** を作成
 
 ```
 $ docker-compose run --rm web rails db:create
 ```
 
-6. コンテナを起動して **Rails** を立ち上げる
+7. コンテナを起動して **Rails** を立ち上げる
 
 ```
 $ docker-compose up
