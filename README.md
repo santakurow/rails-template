@@ -1,14 +1,18 @@
-# Rails-Template
+# Rails-Template v1.2
 
-Docker で構築した、Rails テンプレート  
-Ruby on Rails on Docker :)
+[Docker](https://www.docker.com/products/docker-desktop) で構築された、[Ruby on Rails](https://github.com/rails/rails) 自作テンプレート  
+無駄なセットアップ作業は必要なしで、以下の方法で立ち上げればすぐにdocker上で使用可能(dockerが手元のPCにインストールされていることが前提)  
+
+- Ruby v2.7.3
+- Rails v6.1
+
 
 ## 使い方
 
-1. リポジトリを取得
+1. サイト右上の **Use this template** からこのリポジトリをテンプレートとして新しく複製し、その複製されたリポジトリを作業ディレクトリにクローンする
 
 ```
-$ git clone https://github.com/santakurow/rails-template.git ディレクトリ名
+$ git clone https://github.com/santakurow/リポジトリ名.git
 ```
 
 2. イメージを構築
@@ -23,7 +27,7 @@ $ docker-compose build
 $ docker-compose run --rm web bundle install
 ```
 
-4. キャッシュされている **npm** リストを再度インストール
+4. キャッシュされている npm リストを再度インストール(**webpacker**コマンドを使えるようにする)
 
 ```
 $ docker-compose run --rm web yarn --check-files
