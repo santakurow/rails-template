@@ -27,7 +27,7 @@ $ docker-compose build
 $ docker-compose run --rm web bundle install
 ```
 
-4. キャッシュされている npm リストを再度インストール(**webpacker**コマンドを使えるようにする)
+4. キャッシュされている npm リストを再度インストール(**webpack**コマンドを使えるようにする)
 
 ```
 $ docker-compose run --rm web yarn --check-files
