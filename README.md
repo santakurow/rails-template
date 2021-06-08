@@ -62,8 +62,8 @@ $ docker-compose run --rm web rails db:create
 $ docker-compose up
 ```
 
-### css(sass) for webpacker
-css(sass)をモジュールバンドラーとしてwebpackerで管理することもできる。  
+### webpacker for css(sass)
+css(sass)をwebpackerで管理することもできる。  
 しかし、少々設定が面倒なため、独自のアプリケーションテンプレートを使用して以下の方法で簡単に設定できる  
 
 ```
