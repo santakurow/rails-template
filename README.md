@@ -67,7 +67,7 @@ css(sass)をwebpackerで管理することもできる。
 しかし、少々設定が面倒なため、独自のアプリケーションテンプレートを使用して以下の方法で簡単に設定できる  
 
 ```
-$ rails app:template LOCATION=~/template.rb
+$ rails app:template LOCATION=./template.rb
 ```
 
 Enjoy!
