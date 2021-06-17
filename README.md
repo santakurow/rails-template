@@ -17,6 +17,7 @@ $ git clone https://github.com/santakurow/リポジトリ名.git
 2. docker のセットアップを実行する（初回のみ）
 
 ```
+$ chmod +x ./setup.sh
 $ ./setup.sh
 ```
 
