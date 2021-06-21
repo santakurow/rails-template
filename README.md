@@ -14,14 +14,7 @@
 $ git clone https://github.com/santakurow/リポジトリ名.git
 ```
 
-2. docker のセットアップを実行する（初回のみ）
-
-```
-$ chmod +x ./setup.sh
-$ ./setup.sh
-```
-
-3. `.env`ファイル内の環境変数 **APP_NAME** にプロジェクト名を設定する
+2. `.env.sample`からコピーした`.env`ファイル内の環境変数 **APP_NAME** にプロジェクト名を設定する
    （設定しない場合は`database.yml`内のデフォルト値でプロジェクト名が設定される）
 
 - `.env` を以下のように編集する
@@ -32,6 +25,13 @@ APP_NAME=プロジェクト名
 # MYSQL_USERNAME=
 # MYSQL_PASSWORD=
 # MYSQL_HOST=
+```
+
+3. docker のセットアップを実行する（初回のみ）
+
+```
+$ chmod +x ./setup.sh
+$ ./setup.sh
 ```
 
 4. **データベース** を作成
