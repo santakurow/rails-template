@@ -1,4 +1,4 @@
-# Rails-Template v1.2
+# Rails-Template v1.3
 
 [Docker](https://www.docker.com/products/docker-desktop) で構築された、[Ruby on Rails](https://github.com/rails/rails) 自作テンプレート  
 無駄なセットアップ作業は必要なしで、以下の方法で立ち上げればすぐに docker 上で使用可能(docker が手元の PC にインストールされていることが前提)
