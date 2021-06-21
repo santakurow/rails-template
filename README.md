@@ -34,13 +34,7 @@ $ chmod +x ./setup.sh
 $ ./setup.sh
 ```
 
-4. **データベース** を作成
-
-```
-$ docker-compose run --rm web rails db:create
-```
-
-5. コンテナを起動して **Rails** を立ち上げる
+4. コンテナを起動して **Rails** を立ち上げる
 
 ```
 $ docker-compose up
@@ -49,7 +43,7 @@ $ docker-compose up
 ### `Gemfile` を更新する場合
 
 ```
-$ docker-compose run --rm web bundle install
+$ docker-compose run --rm app bundle install
 ```
 
 <!-- 2. イメージを構築
