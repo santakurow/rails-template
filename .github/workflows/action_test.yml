@@ -6,28 +6,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name:
-          Build & Yarn Setup
-          # package.jsonのパッケージのバージョンとハッシュ値をyarn.lockのものと一致させる
+      - name: Build & Yarn Setup
         run: |
-          docker-compose run web yarn install --check-files
-          docker-compose run web yarn upgrade
+          docker-compose run app yarn --check-files
+
       - name: Bundle install
         run: |
-          docker-compose run web bundle install
+          docker-compose run app bundle install
+
       - name: DB Create
         run: |
-          docker-compose run web rails db:create
+          docker-compose run app rails db:create
         env:
           RAILS_ENV: test
+
       - name: Run RSpec
         run: |
-          docker-compose run web rspec
+          docker-compose run app rspec
         env:
           RAILS_ENV: test
+
       - name: Compose Up
         run: |
           docker-compose up -d
+
       - name: Compose Down
         run: |
           docker-compose down

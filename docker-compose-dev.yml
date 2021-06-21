@@ -1,10 +1,10 @@
 version: "2"
 
 volumes:
-  web-volume:
+  app-volume:
     external: true
 
 services:
-  web:
+  app:
     volumes:
-      - web-volume:/myapp
+      - app-volume:/${APP_NAME:-app}
