@@ -30,7 +30,7 @@ services:
     depends_on:
       - app
 
-  app: &app
+  app:
     build:
       context: .
       args:
@@ -39,25 +39,53 @@ services:
     volumes:
       - .:/${APP_NAME:-app}
       - bundle-data:/usr/local/bundle
+      - node_modules-data:/${APP_NAME:-app}/node_modules
       - public-data:/${APP_NAME:-app}/public
       - tmp-data:/${APP_NAME:-app}/tmp
       - log-data:/${APP_NAME:-app}/log
+    environment:
+      WEBPACKER_DEV_SERVER_HOST: webpacker
+      REDIS_URL: redis://redis:6379/0
     depends_on:
       - db
+      - redis
     stdin_open: true
     tty: true
 
+  redis:
+    build:
+      context: redis
+    volumes:
+      - ./redis:/usr/local/etc/redis
+      - redis-data:/data
+    command: redis-server
+    ports:
+      - "6379:6379"
+
   webpacker:
-    <<: *app
-    command: bash -c "./bin/webpack-dev-server"
+    build: .
+    working_dir: /webpacker
+    command: ./bin/webpack-dev-server
+    volumes:
+      - .:/webpacker
+      - public-data:/webpacker/public
+      - bundle-data:/usr/local/bundle
     environment:
+      NODE_ENV: development
+      RAILS_ENV: development
       WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
     ports:
       - "3035:3035"
+    stdin_open: true
+    tty: true
+    depends_on:
+      - app
 
 volumes:
   mysql-data:
   bundle-data:
+  node_modules-data:
   public-data:
   tmp-data:
   log-data:
+  redis-data:
