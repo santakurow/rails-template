@@ -70,6 +70,7 @@ services:
       - .:/webpacker
       - public-data:/webpacker/public
       - bundle-data:/usr/local/bundle
+      - node_modules-data:/webpacker/node_modules
     environment:
       NODE_ENV: development
       RAILS_ENV: development
